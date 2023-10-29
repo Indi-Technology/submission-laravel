@@ -1,18 +1,33 @@
 <?php
-
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Auth\ProviderController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::middleware(['auth', 'verified'])->group(function(){
+    Route::middleware(['auth', 'admin'])->group(function () {
+        Route::resource('category', CategoryController::class);
+        Route::resource('tag', TagController::class);
+    });
+    Route::get('/', [NewsController::class, 'index'])->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
+    Route::get('/myNews', [NewsController::class, 'myNews'])->name('myNews');
+    Route::resource('news', NewsController::class);
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/about-me', [AboutController::class, 'index'])->name('about');
 });
+
+Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
+
+Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
+
+require __DIR__.'/auth.php';
+
+
