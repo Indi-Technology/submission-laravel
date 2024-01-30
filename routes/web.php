@@ -34,10 +34,8 @@ Route::middleware('auth')->group(function () {
 });
 
 //admin
-Route::middleware('auth')->prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('admin.index');
-    })->name('admin.index');
+Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::resource('categories', AdminCategoryController::class);
     Route::resource('tags', AdminTagController::class);
     Route::resource('posts', AdminPostController::class);
 });

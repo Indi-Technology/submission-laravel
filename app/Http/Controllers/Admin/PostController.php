@@ -7,11 +7,9 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CreatePostRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Admin\EditPostRequest;
-
-
+use App\Http\Requests\Admin\CreatePostRequest;
 
 class PostController extends Controller
 {
@@ -35,11 +33,23 @@ class PostController extends Controller
         $tags = explode(',', $request->tags);
 
         if ($request->has('image')) {
-            $filename = time() . '_' . $request->file('image')->getClientOriginalName();
+
+            $username = auth()->user()->username;
+
+            $extension = $request->file('image')->getClientOriginalExtension();
+
+
+            $i = 1;
+            $filename = $username . '_' . $i . '.' . $extension;
+            while (Storage::exists('public/uploads/' . $filename)) {
+                $i++;
+                $filename = $username . '_' . $i . '.' . $extension;
+            }
+
             $request->file('image')->storeAs('uploads', $filename, 'public');
         }
 
-        $post = auth()->user()->post()->create([
+        $post = auth()->user()->posts()->create([
             'title' => $request->title,
             'image' => $filename ?? null,
             'post' => $request->post,
@@ -53,6 +63,7 @@ class PostController extends Controller
 
         return redirect()->route('admin.posts.index');
     }
+
 
     public function edit(Post $post)
     {
@@ -96,7 +107,7 @@ class PostController extends Controller
             Storage::delete('public/uploads/' . $post->image);
         }
 
-        $post->tag()->detach();
+        $post->tags()->detach();
         $post->delete();
 
         return redirect()->route('admin.posts.index');
