@@ -51,4 +51,4 @@ After login, you can manage tags. Here are the instructions:
 6. Run npm install
 7. Run npm run dev
 8. Run php artisan serve
-9. php artisan storage:link (This command is written after adding an image in the article to create a storage folder in the public folder)
+9. Run php artisan storage:link (This command is written after adding an image in the article to create a storage folder in the public folder)
