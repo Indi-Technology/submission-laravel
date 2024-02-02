@@ -36,6 +36,7 @@ After login, you can manage categories and tags. Here are the instructions:
 3. Run composer install / composer update
 4. Run php artisan key:generate
 5. Run php artisan migrate --seed
-6. Run npm install
-7. Run npm run dev
-8. Run php artisan serve
+6. Run php artisan storage:link
+7. Run npm install
+8. Run npm run dev
+9. Run php artisan serve
