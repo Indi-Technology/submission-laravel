@@ -11,6 +11,18 @@ To access the full features, you need to login. Use the login form on the main p
 Email : admin@gmail.com
 Password : 12345
 
+# Adding Category
+After login, you can add a new category. Follow these steps:
+1. Press the "Create" button in the category list.
+2. Fill in the form with the category name.
+3. Click "Submit" to save your new article.
+
+# Editing and Deleting Category
+If you want to update an existing category, the following steps can be followed:
+1. Go to the category list page.
+2. Select the "Edit" option to edit its category.
+3. To delete an category, select the "Delete" option.
+
 # Adding Articles
 After login, you can add a new article. Follow these steps:
 1. Press the "Create" button in the article list.
@@ -23,10 +35,10 @@ If you want to update an existing article, the following steps can be followed:
 2. Select the "Edit" option to edit its content.
 3. To delete an article, select the "Delete" option.
 
-# Category and Tag Management
-After login, you can manage categories and tags. Here are the instructions:
+# Tag Management
+After login, you can manage tags. Here are the instructions:
 1. Select the "Categories" or "Tags" option in the main menu.
-2. Add, edit, or delete categories and tags as needed.
+2. Create, edit, or delete categories and tags as needed.
 
 ---
 
@@ -36,7 +48,7 @@ After login, you can manage categories and tags. Here are the instructions:
 3. Run composer install / composer update
 4. Run php artisan key:generate
 5. Run php artisan migrate --seed
-6. Run php artisan storage:link
-7. Run npm install
-8. Run npm run dev
-9. Run php artisan serve
+6. Run npm install
+7. Run npm run dev
+8. Run php artisan serve
+9. php artisan storage:link (This command is written after adding an image in the article to create a storage folder in the public folder)
