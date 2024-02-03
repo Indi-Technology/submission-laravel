@@ -28,7 +28,7 @@ class ArticleController extends Controller
         return view('admin.article.create',  compact('categories'));
     }
 
-    public function store(Request $request){
+    public function store(CreateArticleRequest $request){
         $article = new Article([
             'title' => $request->input('title'),
             'full_text' => $request->input('full_text'),
