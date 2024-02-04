@@ -12,13 +12,13 @@ class PostController extends Controller
     {
         $posts = Post::with('tags', 'category')->latest()->paginate(10);
 
-        return view('posts.index', compact('posts'));
+        return view('page.posts.index', compact('posts'));
     }
 
     public function show($id)
     {
         $post = Post::with('tags')->findOrFail($id);
 
-        return view('posts.show', compact('post'));
+        return view('page.posts.show', compact('post'));
     }
 }

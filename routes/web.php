@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\TagController as AdminTagController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,10 @@ Route::get('/', function () {
     return view('page.home', compact('posts'));
 })->name('home');
 
+//main
 Route::view('about', 'page.about')->name('about');
+Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('post/{id}', [PostController::class, 'show'])->name('posts.show');
 
 
 //profile
