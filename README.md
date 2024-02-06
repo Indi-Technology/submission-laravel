@@ -1,3 +1,45 @@
+# System Requirement
+- PHP v8.3
+- Laravel v10
+- Node v20 or lts/iron
+- Mysql
+
+## Framework
+- Laravel Breeze
+- DaisyUI for Tailwind
+
+## Installation 
+
+- Composer Install
+```
+composer install
+```
+
+- NPM Install
+```
+npm install
+```
+
+- Migrate Database
+```
+php artisan migrate
+```
+
+- Seeding (optional)
+```
+php artisan db:seed
+```
+
+- Generate Key
+```
+php artisan key:generate
+```
+
+- Storage Link
+```
+php artisan storage:link
+```
+
 # Laravel Beginner Demo-Project: Personal Blog
 
 demo requirement brief
