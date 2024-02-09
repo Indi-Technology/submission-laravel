@@ -96,7 +96,7 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
 
         $tag = ArticleTag::with('tag')->where('id_articles', $article->id)->get();
-        // dd($request);
+
         $request->validate([
             'title' => ['required'],
             'content' => ['required'],
