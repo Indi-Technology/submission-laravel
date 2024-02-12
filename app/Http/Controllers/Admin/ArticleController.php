@@ -10,9 +10,11 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $articles = Article::with('tags')->get();
+        $query = $request->input('query');
+        $articles = Article::where('title', 'like', '%' . $query . '%')->paginate(10);
         return view('admin.articles.index', compact('articles'));
     }
 
