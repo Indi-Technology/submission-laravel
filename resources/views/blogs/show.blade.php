@@ -23,7 +23,7 @@
                         {{ $article->title }}</h1>
                 </header>
                 @if ($article->image)
-                    <img src="{{ asset('img/' . $article->image) }}" alt="{{ $article->title }}">
+                    <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}">
                 @endif
                 <p class="my-5 font-light text-gray-500 dark:text-gray-400 text-justify">{{ $article->full_text }}</p>
                 <span class="font-medium dark:text-white">

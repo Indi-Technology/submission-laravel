@@ -20,15 +20,15 @@ use App\Http\Controllers\Admin\TagController;
 */
 
 Route::get('/', [BlogController::class, 'index'])->name('blog');
-Route::get('/articles/{id}', [BlogController::class, 'show'])->name('article.show');
+Route::get('/article/{id}', [BlogController::class, 'show'])->name('article.show');
 Route::get('/about', function () {
     return view('blogs.about');
 })->name('about');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/articles', [ArticleController::class, 'index'])->name('article.index');
-    Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
-    Route::get('/tags', [TagController::class, 'index'])->name('tag.index');
+    Route::resources(['article' => ArticleController::class,]);
+    Route::resources(['category' => CategoryController::class,]);
+    Route::resources(['tag' => TagController::class,]);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
