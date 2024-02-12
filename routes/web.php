@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Authcontroller;
+use App\Http\Controllers\SlideController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +26,10 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
+    return view('dashboard.index')->with(['title'=>'About']);
 })->middleware('auth');
+
+Route::resource('/dashboard/slide', SlideController::class)->middleware('auth');
 
 
 
