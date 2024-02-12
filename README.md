@@ -1,79 +1,37 @@
-# Laravel Beginner Demo-Project: Personal Blog
+<p align="center">
+  <a href="https://github.com/taufikhdyt01/submission-laravel">
+    <h1 align="center" style="color: #4B47FF">Laravel Beginner Demo-Project: Personal Blog</h1>
+  </a>
+  <p align="center">
+    This project submission for MSIB INDI Technology utilizes Laravel Breeze (Tailwind CSS) as its Auth Starter Kit.
+  </p>
+</p>
 
-demo requirement brief
+# Profile
+-   Taufik Hidayat - Universitas Brawijaya
 
----
+# Getting Started
 
-This repository is intentionally empty, with only a Readme file. Your task is to submit a Pull Request with your version of implementing the task and your PR will be reviewed by our team.
+## Prerequisites
 
----
+You will need the following to run StuBaby:
 
-You need to create a simple Article with just 5 pages:
+-   PHP >= 8.0.2
+-   Composer
+-   NPM
+-   Database server (MySQL, MariaDB, PostgreSQL, or SQLite)
 
-- Homepage: List of articles
-- Article page to show single Article
-- Create page to create new Article
-- Edit page to update existing Article
-- Some static text page like "About me"
+## Installation
 
-Also, there should be a Login mechanism with Register for the author to write articles:
+The following steps will guide you through the installation process for running in a development environment locally on your machine:
 
-- Manage (meaning, create/update/delete) categories
-- Manage tags
-- Manage articles
-- For Auth Starter Kit, use [Laravel Breeze](https://github.com/laravel/breeze) - that starter kit will have some design, which is enough: the design is irrelevant for accomplishing the task
-
-**DB Structure:**
-
-- Article has title (required), full text (required), and image to upload (optional)
-- Article may have only one category, but may have multiple tags
-
-## **Features to implement**
-
-you need to try to implement in your code:
-
-**Routing and Controllers: Basics**
-
-- Callback Functions and Route::view()
-- Routing to a Single Controller Method
-- Route Parameters
-- Route Naming
-- Route Groups
-
-**Blade Basics**
-
-- Displaying Variables in Blade
-- Blade If-Else and Loop Structures
-- Blade Loops
-- Layout: @include, @extends, @section, @yield
-- Blade Components
-
-**Auth Basics**
-
-- Default Auth Model and Access its Fields from Anywhere
-- Check Auth in Controller / Blade
-- Auth Middleware
-
-**Database Basics**
-
-- Database Migrations
-- Basic Eloquent Model and MVC: Controller -> Model -> View
-- Eloquent Relationships: belongsTo / hasMany / belongsToMany
-- Eager Loading and N+1 Query Problem
-
-**Full Simple CRUD**
-
-- Route Resource and Resourceful Controllers
-- Forms, Validation, and Form Requests
-- File Uploads and Storage Folder Basics
-- Table Pagination
-
-## **Example Solutions**
-
----
-
-If you need help, or you want to compare your version with our simple version, here are the public repositories with the solution:
-
-[https://github.com/DiazFarindra/laravel-beginner-demo-project](https://github.com/DiazFarindra/laravel-beginner-demo-project)
-
-**Notice**: please look at those repositories only AFTER you've accomplished the task yourself, or if you're confident about your Laravel beginner skills and you think you don't need to practice this task.
+1. Clone the latest version from the repository
+2. Run `composer install` to install the required PHP dependencies
+3. Copy the .env.example file to .env and edit the database credentials according to your database server
+4. Run `php artisan key:generate` to generate a new application key
+5. Run `php artisan migrate` to create the database tables. You can also add the `--seed` flag to seed the database with some dummy data
+6. Run `php artisan serve` to start the development server
+7. Open another terminal and run `npm install && npm run build` to install the required node modules
+8. Run `npm run dev` to compile the assets for development
+9. Open your browser and go to `http://localhost:8000` to view the application
+10. You can login to manage articles with default credentials `admin@example.com` - `password`
