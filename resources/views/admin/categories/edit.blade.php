@@ -11,9 +11,9 @@
                         @method('PUT')
                         @csrf
                         <div>
-                            <x-label class="block text-sm text-gray-600" for="name"/>Name
-                            <x-input id="name" class="block w-full mt-1" name="name" type="text" value="{{ $category->name }}" required/>
-                            @error('name')
+                            <x-label class="block text-sm text-gray-600" for="name"/>Name Category
+                            <x-input id="name" class="block w-full mt-1" name="name_category" type="text" value="{{ $category->name_category }}" required/>
+                            @error('name_catgeory')
                             <span class="font-medium text-red-600" role="alert">{{ $message }}</span>
                             @enderror
                         </div>

@@ -17,7 +17,7 @@
                                 #
                             </th>
                             <th class="px-6 py-4 text-sm font-bold uppercase bg-gray-100 border-b text-gray-dark border-gray-light">
-                                Name
+                                Name Tag
                             </th>
                             <th class="px-6 py-4 text-sm font-bold uppercase bg-gray-100 border-b text-gray-dark border-gray-light"></th>
                         </tr>
@@ -26,14 +26,14 @@
                         @foreach ($tags as $tag)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-6 py-4 border-b border-gray-200">{{ $tag->id }}</td>
-                                <td class="px-6 py-4 border-b border-gray-200">{{ $tag->name }}</td>
+                                <td class="px-6 py-4 border-b border-gray-200">{{ $tag->name_tag }}</td>
                                 <td class="px-6 py-4 border-b border-gray-200">
                                 <x-link href="{{ route('admin.tags.edit', $tag->id) }}">
                                         Edit
                                 </x-link>
 
                                     <form action="{{ route('admin.tags.destroy', $tag->id) }}" method="POST"
-                                          onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
+                                        onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <x-button>Delete</x-button>

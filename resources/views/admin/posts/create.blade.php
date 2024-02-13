@@ -37,7 +37,7 @@
                                 <option value="0">--- SELECT CATEGORY ---</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}"
-                                            @if ($category->id == old('category')) selected @endif>{{ $category->name }}</option>
+                                            @if ($category->id == old('category')) selected @endif>{{ $category->name_category }}</option>
                                 @endforeach
                             </select>
                             @error('category')
@@ -46,8 +46,8 @@
                         </div>
                         <div>
                             <x-label for="post">Post</x-label>
-                            <textarea id="post" class="block w-full mt-1" name="post"  rows="6">{{ old('post') }}</textarea>
-                            @error('post')
+                            <textarea id="post" class="block w-full mt-1" name="text"  rows="6">{{ old('text') }}</textarea>
+                            @error('text')
                             <span class="font-medium text-red-600" role="alert">{{ $message }}</span>
                             @enderror
                         </div>

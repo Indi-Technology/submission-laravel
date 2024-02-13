@@ -10,9 +10,9 @@
                     <form method="POST" action="{{ route('admin.tags.store') }}">
                         @csrf
                         <div>
-                            <x-label class="block text-sm text-gray-600" for="name"/>Name
-                            <x-input id="name" class="block w-full mt-1" name="name" type="text" required/>
-                            @error('name')
+                            <x-label class="block text-sm text-gray-600" for="name"/>Name Tag
+                            <x-input id="name" class="block w-full mt-1" name="name_tag" type="text" required/>
+                            @error('name_tag')
                             <span class="font-medium text-red-600" role="alert">{{ $message }}</span>
                             @enderror
                         </div>

@@ -12,8 +12,8 @@
                         @csrf
                         <div>
                             <x-label class="block text-sm text-gray-600" for="name"/>Name
-                            <x-input id="name" class="block w-full mt-1" name="name" type="text" value="{{ $tag->name }}" required/>
-                            @error('name')
+                            <x-input id="name" class="block w-full mt-1" name="name_tag" type="text" value="{{ $tag->name_tag }}" required/>
+                            @error('name_tag')
                             <span class="font-medium text-red-600" role="alert">{{ $message }}</span>
                             @enderror
                         </div>

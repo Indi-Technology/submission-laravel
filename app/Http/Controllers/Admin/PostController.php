@@ -15,7 +15,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('category')->paginate(10);
+        $posts = Post::with('category')->paginate(20);
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -74,7 +74,7 @@ class PostController extends Controller
         $post->update([
             'title' => $request->title,
             'image' => $filename ?? $post->image,
-            'text' => $request->text,
+            'post' => $request->post,
             'category_id' => $request->category
         ]);
 
