@@ -30,14 +30,14 @@
                             <tr class="hover:bg-gray-50">
                                 <td class="px-6 py-4 border-b border-gray-200">{{ $post->id }}</td>
                                 <td class="px-6 py-4 border-b border-gray-200">{{ $post->title }}</td>
-                                <td class="px-6 py-4 border-b border-gray-200">{{ $post->category->name }}</td>
+                                <td class="px-6 py-4 border-b border-gray-200">{{ $post->category->name_category }}</td>
                                 <td class="px-6 py-4 border-b border-gray-200">
                                     <x-link href="{{ route('admin.posts.edit', $post->id) }}">
                                         Edit
                                     </x-link>
 
                                     <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST"
-                                          onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
+                                        onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <x-button>Delete</x-button>

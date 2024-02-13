@@ -20,7 +20,7 @@
                                         <img src="" alt="">
                                     @endif
                                     <span
-                                        class="font-semibold text-gray-700 title-font">{{ $post->category->name }}</span>
+                                        class="font-semibold text-gray-700 title-font">{{ $post->category->name_category }}</span>
                                     <span
                                         class="mt-1 text-sm text-gray-500">{{ $post->created_at->format('d F Y') }}</span>
                                 </div>
@@ -31,7 +31,7 @@
                                             <div class="flex flex-wrap">
                                                 @foreach ($post->tags as $tag)
                                                     <span
-                                                        class="mr-3 text-sm font-medium uppercase">#{{ $tag->name }}</span>
+                                                        class="mr-3 text-sm font-medium uppercase">#{{ $tag->name_tag }}</span>
                                                 @endforeach
                                             </div>
                                         </div>
@@ -41,8 +41,8 @@
                                     </div>
                                     <x-nav-link href="{{ route('posts.show', $post) }}">Read More
                                         <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor"
-                                             stroke-width="2" fill="none" stroke-linecap="round"
-                                             stroke-linejoin="round">
+                                            stroke-width="2" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round">
                                             <path d="M5 12h14"></path>
                                             <path d="M12 5l7 7-7 7"></path>
                                         </svg>

@@ -20,7 +20,7 @@
                             <div>
                                 @foreach ($post->tags as $tag)
                                     <span
-                                        class="mr-3 text-sm font-medium uppercase">#{{ $tag->name }}</span>
+                                        class="mr-3 text-sm font-medium uppercase">#{{ $tag->name_tag }}</span>
                                 @endforeach
                             </div>
                         </dl>
@@ -39,7 +39,7 @@
 
                     <div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2">
                         <div class="pt-10 pb-8 prose max-w-none">
-                            {!! nl2br($post->post) !!}
+                            {!! nl2br($post->text) !!}
                         </div>
                     </div>
                 </div>
