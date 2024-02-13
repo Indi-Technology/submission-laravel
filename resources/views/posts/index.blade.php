@@ -15,9 +15,9 @@
                             <div class="flex flex-wrap py-8 md:flex-nowrap">
                                 <div class="flex flex-col flex-shrink-0 mb-6 md:w-64 md:mb-0">
                                     @if($post->image)
-                                        <img src="{{ asset('uploads/' . $post->image) }}" width="100" height="100">
+                                        <img src="{{ asset('storage/uploads/' . $post->image) }}" width="100" height="100">
                                     @else
-                                        <img src="" alt="">
+                                    <img src="{{ asset('storage/noimage.png') }}" width="100" height="100">
                                     @endif
                                     <span
                                         class="font-semibold text-gray-700 title-font">{{ $post->category->name_category }}</span>
