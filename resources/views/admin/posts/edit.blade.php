@@ -38,7 +38,7 @@
                                 <option value="#">--- SELECT CATEGORY ---</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}"
-                                            @if (in_array($category->id, $post->category->pluck('id')->toArray())) selected @endif>{{ $category->name }}</option>
+                                            @if (in_array($category->id, $post->category->pluck('id')->toArray())) selected @endif>{{ $category->name_category }}</option>
                                 @endforeach
                             </select>
                             @error('category')
@@ -47,7 +47,7 @@
                         </div>
                         <div>
                             <x-label class="block text-sm text-gray-600" for="post">Post</x-label>
-                            <textarea id="post" class="block w-full mt-1" name="post" required rows="6">{{ old('post', $post->post) }}</textarea>
+                            <textarea id="post" class="block w-full mt-1" name="text" required rows="6">{{ old('text', $post->text) }}</textarea>
                             @error('post')
                             <span class="font-medium text-red-600" role="alert">{{ $message }}</span>
                             @enderror

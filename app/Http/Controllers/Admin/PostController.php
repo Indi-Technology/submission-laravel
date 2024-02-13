@@ -40,12 +40,12 @@ class PostController extends Controller
         $post = auth()->user()->posts()->create([
             'title' => $request->title,
             'image' => $filename ?? null,
-            'post' => $request->post,
+            'text' => $request->text,
             'category_id' => $request->category
         ]);
 
         foreach ($tags as $tagName) {
-            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $tag = Tag::firstOrCreate(['name_tag' => $tagName]);
             $post->tags()->attach($tag);
         }
 
@@ -55,7 +55,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        $tags = $post->tags->implode('name', ', ');
+        $tags = $post->tags->implode('name_tag', ', ');
 
         return view('admin.posts.edit', compact('post', 'tags', 'categories'));
     }
@@ -74,13 +74,13 @@ class PostController extends Controller
         $post->update([
             'title' => $request->title,
             'image' => $filename ?? $post->image,
-            'post' => $request->post,
+            'text' => $request->text,
             'category_id' => $request->category
         ]);
 
         $newTags = [];
         foreach ($tags as $tagName) {
-            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $tag = Tag::firstOrCreate(['name_tag' => $tagName]);
             array_push($newTags, $tag->id);
         }
         $post->tags()->sync($newTags);
@@ -94,7 +94,7 @@ class PostController extends Controller
             Storage::delete('public/uploads/' . $post->image);
         }
 
-        $post->tag()->detach();
+        $post->tags()->detach();
         $post->delete();
 
         return redirect()->route('admin.posts.index');
